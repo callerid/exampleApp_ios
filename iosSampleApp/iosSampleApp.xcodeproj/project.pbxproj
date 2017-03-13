@@ -14,6 +14,10 @@
 		046F64741E76F59F00C59A6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046F64721E76F59F00C59A6F /* LaunchScreen.storyboard */; };
 		046F647F1E76F59F00C59A6F /* iosSampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F647E1E76F59F00C59A6F /* iosSampleAppTests.swift */; };
 		046F648A1E76F59F00C59A6F /* iosSampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F64891E76F59F00C59A6F /* iosSampleAppUITests.swift */; };
+		04F16A121E771944007201AD /* idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F16A101E771944007201AD /* idle.png */; };
+		04F16A131E771944007201AD /* ring.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F16A111E771944007201AD /* ring.png */; };
+		04F16A151E771DBA007201AD /* contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F16A141E771DBA007201AD /* contacts.png */; };
+		04F16A171E771E2A007201AD /* contacts_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F16A161E771E2A007201AD /* contacts_idle.png */; };
 		D5712BEB2FE54B34DA03BCCA /* Pods_iosSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 474539C6ACE5A81F06A47667 /* Pods_iosSampleApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +52,10 @@
 		046F64851E76F59F00C59A6F /* iosSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		046F64891E76F59F00C59A6F /* iosSampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosSampleAppUITests.swift; sourceTree = "<group>"; };
 		046F648B1E76F59F00C59A6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04F16A101E771944007201AD /* idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = idle.png; path = Images/idle.png; sourceTree = SOURCE_ROOT; };
+		04F16A111E771944007201AD /* ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ring.png; path = Images/ring.png; sourceTree = SOURCE_ROOT; };
+		04F16A141E771DBA007201AD /* contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contacts.png; path = Images/contacts.png; sourceTree = SOURCE_ROOT; };
+		04F16A161E771E2A007201AD /* contacts_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contacts_idle.png; path = Images/contacts_idle.png; sourceTree = SOURCE_ROOT; };
 		474539C6ACE5A81F06A47667 /* Pods_iosSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E30C1040E90185F547A7B74 /* Pods-iosSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosSampleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iosSampleApp/Pods-iosSampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		F9C6C6AD6BA9327FBDFFCF81 /* Pods-iosSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosSampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iosSampleApp/Pods-iosSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +116,10 @@
 				046F646B1E76F59F00C59A6F /* ViewController.swift */,
 				046F646D1E76F59F00C59A6F /* Main.storyboard */,
 				046F64701E76F59F00C59A6F /* Assets.xcassets */,
+				04F16A141E771DBA007201AD /* contacts.png */,
+				04F16A161E771E2A007201AD /* contacts_idle.png */,
+				04F16A101E771944007201AD /* idle.png */,
+				04F16A111E771944007201AD /* ring.png */,
 				046F64721E76F59F00C59A6F /* LaunchScreen.storyboard */,
 				046F64751E76F59F00C59A6F /* Info.plist */,
 			);
@@ -259,7 +271,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F16A151E771DBA007201AD /* contacts.png in Resources */,
 				046F64741E76F59F00C59A6F /* LaunchScreen.storyboard in Resources */,
+				04F16A131E771944007201AD /* ring.png in Resources */,
+				04F16A121E771944007201AD /* idle.png in Resources */,
+				04F16A171E771E2A007201AD /* contacts_idle.png in Resources */,
 				046F64711E76F59F00C59A6F /* Assets.xcassets in Resources */,
 				046F646F1E76F59F00C59A6F /* Main.storyboard in Resources */,
 			);
@@ -582,6 +598,7 @@
 				046F64901E76F59F00C59A6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		046F64911E76F59F00C59A6F /* Build configuration list for PBXNativeTarget "iosSampleAppTests" */ = {
 			isa = XCConfigurationList;
@@ -590,6 +607,7 @@
 				046F64931E76F59F00C59A6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		046F64941E76F59F00C59A6F /* Build configuration list for PBXNativeTarget "iosSampleAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -598,6 +616,7 @@
 				046F64961E76F59F00C59A6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
