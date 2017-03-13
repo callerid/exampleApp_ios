@@ -5,14 +5,22 @@ spenland@callerid.com
 -------------------------------------------------------------------------------
 
 iOS Development
- - This is a tutorial on developing a simple CallerID app on iOS using Swift.
- - This app will use the 'CocoaAsyncSocket' libraries to make UDP coding easier. 
+ - This app will uses the 'CocoaAsyncSocket' libraries to make UDP coding easier.
+ - App targets iPhone 5s. 
 
  - To test your app you can use 'Packet Sender' found at:
     https://packetsender.com
 	
 	Packets to be loaded and sent using Packet Sender that are in the format of CallerID.com packets can be found in this repo under 'Sample UDP Packets'
 
+-------------------------------------------------------------------------------
+Refer to this repo's source code for example application.
+-------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------
+To begin your own iOS project do the following:
 -------------------------------------------------------------------------------
 
 1- Install cocoaPods:
@@ -35,4 +43,4 @@ iOS Development
 	'workspace' file instead of project file.
 	***************************************************
 	
-5- 
+5- Refer to this repo's source example for help.
