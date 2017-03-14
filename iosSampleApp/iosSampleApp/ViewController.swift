@@ -3,7 +3,7 @@
 //  iosSampleApp
 //
 //  Created by mac on 3/13/17.
-//  Copyright © 2017 CallerId.com. All rights reserved.
+//  CallerID.com
 //
 
 import UIKit
@@ -72,7 +72,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
         
     }
     
-    @IBAction func stopServer(_ sender: AnyObject) {
+    fileprivate func stopServer(_ sender: AnyObject) {
         if socket != nil {
             socket?.pauseReceiving()
         }
@@ -81,11 +81,132 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
         
-        if let str = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
+        if let udpRecieved = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
             
-            // handle recieved data
+            // parse and handle udp data----------------------------------------------
+            
+            // declare used variables for matching
+            var lineNumber = "n/a"
+            var startOrEnd = "n/a"
+            var inboundOrOutbound = "n/a"
+            var duration = "n/a"
+            var ckSum = "B"
+            var callRing = "n/a"
+            var callTime = "01/01 0:00:00"
+            var phoneNumber = "n/a"
+            var callerId = "n/a"
+            var detailedType = "n/a"
+            var isDetailed = false
+            
+            // define CallerID.com regex strings used for parsing CallerID.com hardware formats
+            let callRecordPattern = ".*(\\d\\d) ([IO]) ([ES]) (\\d{4}) ([GB]) (.)(\\d) (\\d\\d/\\d\\d \\d\\d:\\d\\d [AP]M) (.{8,15})(.*)"
+            let detailedPattern = ".*(\\d\\d) ([NFR]) {13}(\\d\\d/\\d\\d \\d\\d:\\d\\d:\\d\\d)"
+            
+            let callRecordRegex = try! NSRegularExpression(pattern: callRecordPattern, options: [])
+            let detailedRegex = try! NSRegularExpression(pattern: detailedPattern, options: [])
+            
+            // get matches for regular expressions
+            let callRecordMatches = callRecordRegex.matches(in: udpRecieved as String, options: [], range: NSRange(location: 0, length: udpRecieved.length))
+            let detailedMatches = detailedRegex.matches(in: udpRecieved as String, options: [], range: NSRange(location: 0, length: udpRecieved.length))
+            
+            // look at call record matches first to determine if call record
+            if(callRecordMatches.count>0){
+                
+                // IS CALL RECORD
+                // -- get groups out of regex
+                callRecordRegex.enumerateMatches(in: udpRecieved as String, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSRange(location: 0, length:udpRecieved.length))
+                {(result : NSTextCheckingResult?, _, _) in
+                    let capturedRange = result!.rangeAt(1)
+                    if !NSEqualRanges(capturedRange, NSMakeRange(NSNotFound, 0)) {
+                        
+                        lineNumber = udpRecieved.substring(with: result!.rangeAt(1))
+                        inboundOrOutbound = udpRecieved.substring(with: result!.rangeAt(2))
+                        startOrEnd = udpRecieved.substring(with: result!.rangeAt(3))
+                        duration = udpRecieved.substring(with: result!.rangeAt(4))
+                        ckSum = udpRecieved.substring(with: result!.rangeAt(5))
+                        callRing = udpRecieved.substring(with: result!.rangeAt(6)) + udpRecieved.substring(with: result!.rangeAt(7))
+                        callTime = udpRecieved.substring(with: result!.rangeAt(8))
+                        phoneNumber = udpRecieved.substring(with: result!.rangeAt(9))
+                        callerId = udpRecieved.substring(with: result!.rangeAt(10))
+                        
+                    }
+                }
+                
+                // -----------------------------
+                
+            }
+            
+            // look at detail matches if detailed record
+            if(detailedMatches.count>0){
+                
+                // IS DETAILED RECORD
+                detailedRegex.enumerateMatches(in: udpRecieved as String, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSRange(location: 0, length:udpRecieved.length))
+                {(result : NSTextCheckingResult?, _, _) in
+                    let capturedRange = result!.rangeAt(1)
+                    if !NSEqualRanges(capturedRange, NSMakeRange(NSNotFound, 0)) {
+                        
+                        isDetailed = true
+                        
+                        lineNumber = udpRecieved.substring(with: result!.rangeAt(1))
+                        detailedType = udpRecieved.substring(with: result!.rangeAt(2))
+                        callTime = udpRecieved.substring(with: result!.rangeAt(3))
+                        
+                    }
+                }
+                
+            }
+            
+            //----------------------------------------------------------------------------
+            //                        Display changes on screen
+            //----------------------------------------------------------------------------
+            // The following code is to handle window visuals
+            // 
+            //    This code could easily be condensed into one method handling different
+            //    line numbers. We use 4 occurances of the same method hoping that clarity
+            //    could be provided.
+            //----------------------------------------------------------------------------
+            
+            // Exit this code if both regex expressions failed
+            if(lineNumber == "n/a"){ return }
+            
+            switch lineNumber {
+                
+            case "01":
+                
+                //-------------------- LINE 1 -------------------------
+                
+                break
+                
+            case "02":
+                
+                //-------------------- LINE 2 -------------------------
+                
+                break
+                
+            case "03":
+                
+                //-------------------- LINE 3 -------------------------
+                
+                break
+                
+            case "04":
+                
+                //-------------------- LINE 4 -------------------------
+                
+                break
+                
+                
+            default:
+                
+                return
+            }
             
             
+            
+        }
+        else{
+            
+            // data from udp wasn't used
             
         }
         
