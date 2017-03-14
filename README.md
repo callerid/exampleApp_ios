@@ -6,16 +6,14 @@ spenland@callerid.com
 
 iOS Development
  - This app will uses the 'CocoaAsyncSocket' libraries to make UDP coding easier.
+ - This app will aslo be using SQLite which will mean including the FMDB wrapper
+   for Objective-C.
  - App targets iPhone 5s. 
-
- - To test your app you can use 'Packet Sender' found at:
-    https://packetsender.com
-	
-	Packets to be loaded and sent using Packet Sender that are in the format of CallerID.com packets can be found in this repo under 'Sample UDP Packets'
 
 -------------------------------------------------------------------------------
 Refer to this repo's source code for example application.
 -------------------------------------------------------------------------------
+
 
 
 
@@ -34,6 +32,7 @@ To begin your own iOS project do the following:
 3- Create/initalize podfile to include:
 	use_frameworks!
 	pod 'CocoaAsyncSocket'
+	pod 'FMDB'
 	
 4- In terminal CD to your project directory
     Run 'pod install' to add dependencies to your project

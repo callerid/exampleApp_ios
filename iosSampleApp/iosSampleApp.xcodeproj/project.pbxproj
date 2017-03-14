@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043190941E787BFE003C2C7A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 043190931E787BFE003C2C7A /* libsqlite3.tbd */; };
 		046EA30A1E78549F000A62D6 /* contacts_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EA3041E78549F000A62D6 /* contacts_add.png */; };
 		046EA30B1E78549F000A62D6 /* contacts_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EA3051E78549F000A62D6 /* contacts_idle.png */; };
 		046EA30C1E78549F000A62D6 /* contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EA3061E78549F000A62D6 /* contacts.png */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043190931E787BFE003C2C7A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		046EA3041E78549F000A62D6 /* contacts_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contacts_add.png; path = Images/contacts_add.png; sourceTree = SOURCE_ROOT; };
 		046EA3051E78549F000A62D6 /* contacts_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contacts_idle.png; path = Images/contacts_idle.png; sourceTree = SOURCE_ROOT; };
 		046EA3061E78549F000A62D6 /* contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contacts.png; path = Images/contacts.png; sourceTree = SOURCE_ROOT; };
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043190941E787BFE003C2C7A /* libsqlite3.tbd in Frameworks */,
 				D5712BEB2FE54B34DA03BCCA /* Pods_iosSampleApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +156,7 @@
 		8E6E490A915701F6493FD334 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				043190931E787BFE003C2C7A /* libsqlite3.tbd */,
 				474539C6ACE5A81F06A47667 /* Pods_iosSampleApp.framework */,
 			);
 			name = Frameworks;
@@ -512,6 +516,7 @@
 			baseConfigurationReference = F9C6C6AD6BA9327FBDFFCF81 /* Pods-iosSampleApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = iosSampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.callerid.iosSampleApp;
@@ -525,6 +530,7 @@
 			baseConfigurationReference = 4E30C1040E90185F547A7B74 /* Pods-iosSampleApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = iosSampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.callerid.iosSampleApp;

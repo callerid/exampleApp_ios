@@ -420,7 +420,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     line_2_row.backgroundColor = #colorLiteral(red: 0.328819922, green: 0.5575907389, blue: 0.6772587435, alpha: 1)
                     
                     // Show time and callerid (name & number)
-                    line_2_text.text = "01: " + callTime + "  " + phoneNumber + "  " + callerId
+                    line_2_text.text = "02: " + callTime + "  " + phoneNumber + "  " + callerId
                     
                     break
                     
@@ -471,7 +471,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     line_3_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
                     
                     // Show time and callerid (name & number)
-                    line_3_text.text = "01: " + callTime + "  " + phoneNumber + "  " + callerId
+                    line_3_text.text = "03: " + callTime + "  " + phoneNumber + "  " + callerId
                     
                     break
                     
@@ -523,7 +523,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     line_3_row.backgroundColor = #colorLiteral(red: 0.328819922, green: 0.5575907389, blue: 0.6772587435, alpha: 1)
                     
                     // Show time and callerid (name & number)
-                    line_3_text.text = "01: " + callTime + "  " + phoneNumber + "  " + callerId
+                    line_3_text.text = "03: " + callTime + "  " + phoneNumber + "  " + callerId
                     
                     break
                     
@@ -576,7 +576,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     line_4_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
                     
                     // Show time and callerid (name & number)
-                    line_4_text.text = "01: " + callTime + "  " + phoneNumber + "  " + callerId
+                    line_4_text.text = "04: " + callTime + "  " + phoneNumber + "  " + callerId
                     
                     break
                     
@@ -628,7 +628,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     line_4_row.backgroundColor = #colorLiteral(red: 0.328819922, green: 0.5575907389, blue: 0.6772587435, alpha: 1)
                     
                     // Show time and callerid (name & number)
-                    line_4_text.text = "01: " + callTime + "  " + phoneNumber + "  " + callerId
+                    line_4_text.text = "04: " + callTime + "  " + phoneNumber + "  " + callerId
                     
                     break
                     
