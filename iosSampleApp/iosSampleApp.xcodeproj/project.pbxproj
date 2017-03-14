@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		043190941E787BFE003C2C7A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 043190931E787BFE003C2C7A /* libsqlite3.tbd */; };
 		046EA30A1E78549F000A62D6 /* contacts_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EA3041E78549F000A62D6 /* contacts_add.png */; };
 		046EA30B1E78549F000A62D6 /* contacts_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EA3051E78549F000A62D6 /* contacts_idle.png */; };
 		046EA30C1E78549F000A62D6 /* contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EA3061E78549F000A62D6 /* contacts.png */; };
@@ -21,6 +20,7 @@
 		046F64741E76F59F00C59A6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046F64721E76F59F00C59A6F /* LaunchScreen.storyboard */; };
 		046F647F1E76F59F00C59A6F /* iosSampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F647E1E76F59F00C59A6F /* iosSampleAppTests.swift */; };
 		046F648A1E76F59F00C59A6F /* iosSampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F64891E76F59F00C59A6F /* iosSampleAppUITests.swift */; };
+		047239501E787FC00057B558 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472394F1E787FC00057B558 /* DBManager.swift */; };
 		D5712BEB2FE54B34DA03BCCA /* Pods_iosSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 474539C6ACE5A81F06A47667 /* Pods_iosSampleApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +62,7 @@
 		046F64851E76F59F00C59A6F /* iosSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		046F64891E76F59F00C59A6F /* iosSampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosSampleAppUITests.swift; sourceTree = "<group>"; };
 		046F648B1E76F59F00C59A6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0472394F1E787FC00057B558 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		474539C6ACE5A81F06A47667 /* Pods_iosSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E30C1040E90185F547A7B74 /* Pods-iosSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosSampleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iosSampleApp/Pods-iosSampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		F9C6C6AD6BA9327FBDFFCF81 /* Pods-iosSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosSampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iosSampleApp/Pods-iosSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,7 +73,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				043190941E787BFE003C2C7A /* libsqlite3.tbd in Frameworks */,
 				D5712BEB2FE54B34DA03BCCA /* Pods_iosSampleApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +131,7 @@
 				046EA3091E78549F000A62D6 /* ring.png */,
 				046F64721E76F59F00C59A6F /* LaunchScreen.storyboard */,
 				046F64751E76F59F00C59A6F /* Info.plist */,
+				0472394F1E787FC00057B558 /* DBManager.swift */,
 			);
 			path = iosSampleApp;
 			sourceTree = "<group>";
@@ -363,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				046F646C1E76F59F00C59A6F /* ViewController.swift in Sources */,
+				047239501E787FC00057B558 /* DBManager.swift in Sources */,
 				046F646A1E76F59F00C59A6F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
