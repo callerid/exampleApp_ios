@@ -9,11 +9,13 @@
 import UIKit
 import CocoaAsyncSocket
 
-class ViewController: UIViewController, GCDAsyncUdpSocketDelegate {
+class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // start UDP server to listen to CallerID.com port (3520)
+        startServer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,7 +60,7 @@ class ViewController: UIViewController, GCDAsyncUdpSocketDelegate {
         return sock
     }
     
-    @IBAction func startServer(_ sender: AnyObject) {
+    fileprivate func startServer() {
         
         do {
             try socket?.beginReceiving()

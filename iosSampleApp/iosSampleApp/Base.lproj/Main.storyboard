@@ -12,7 +12,7 @@
         <!--CallerID.com Sample App-->
         <scene sceneID="B59-AG-cwq">
             <objects>
-                <tableViewController id="jO2-zK-O5Q" sceneMemberID="viewController">
+                <tableViewController id="jO2-zK-O5Q" customClass="ViewController" customModule="iosSampleApp" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pgW-c7-eMo">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3ne-N5-xhA" id="VX8-4N-Jn3">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="667" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="k8P-Ep-g7x">
@@ -54,7 +54,7 @@
                                         <rect key="frame" x="0.0" y="65" width="667" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0oM-6A-sE5" id="7V7-IV-qvF">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="667" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="fIV-te-Har">
@@ -84,7 +84,7 @@
                                         <rect key="frame" x="0.0" y="130" width="667" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B1c-C3-t3h" id="XX3-HT-5MJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="667" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="iVs-YM-2eI">
@@ -114,7 +114,7 @@
                                         <rect key="frame" x="0.0" y="195" width="667" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tUN-1m-LWU" id="U5M-dL-aed">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="667" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="vEL-wX-PDR">
