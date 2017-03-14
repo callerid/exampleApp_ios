@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046EA2F61E784C36000A62D6 /* contacts_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EA2F41E784C36000A62D6 /* contacts_add.png */; };
+		046EA2F71E784C36000A62D6 /* off-hook.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EA2F51E784C36000A62D6 /* off-hook.png */; };
 		046F646A1E76F59F00C59A6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F64691E76F59F00C59A6F /* AppDelegate.swift */; };
 		046F646C1E76F59F00C59A6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F646B1E76F59F00C59A6F /* ViewController.swift */; };
 		046F646F1E76F59F00C59A6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046F646D1E76F59F00C59A6F /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		046EA2F41E784C36000A62D6 /* contacts_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contacts_add.png; path = Images/contacts_add.png; sourceTree = SOURCE_ROOT; };
+		046EA2F51E784C36000A62D6 /* off-hook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "off-hook.png"; path = "Images/off-hook.png"; sourceTree = SOURCE_ROOT; };
 		046F64661E76F59F00C59A6F /* iosSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		046F64691E76F59F00C59A6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		046F646B1E76F59F00C59A6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 				046F64701E76F59F00C59A6F /* Assets.xcassets */,
 				04F16A141E771DBA007201AD /* contacts.png */,
 				04F16A161E771E2A007201AD /* contacts_idle.png */,
+				046EA2F41E784C36000A62D6 /* contacts_add.png */,
+				046EA2F51E784C36000A62D6 /* off-hook.png */,
 				04F16A101E771944007201AD /* idle.png */,
 				04F16A111E771944007201AD /* ring.png */,
 				046F64721E76F59F00C59A6F /* LaunchScreen.storyboard */,
@@ -272,7 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F16A151E771DBA007201AD /* contacts.png in Resources */,
+				046EA2F71E784C36000A62D6 /* off-hook.png in Resources */,
 				046F64741E76F59F00C59A6F /* LaunchScreen.storyboard in Resources */,
+				046EA2F61E784C36000A62D6 /* contacts_add.png in Resources */,
 				04F16A131E771944007201AD /* ring.png in Resources */,
 				04F16A121E771944007201AD /* idle.png in Resources */,
 				04F16A171E771E2A007201AD /* contacts_idle.png in Resources */,
