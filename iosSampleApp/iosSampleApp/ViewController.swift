@@ -11,6 +11,36 @@ import CocoaAsyncSocket
 
 class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
 
+    // ------------------------------------------------------
+    //        Setup UI elements to allow for editing
+    // ------------------------------------------------------
+    
+    // Phone status images
+    @IBOutlet weak var line_1_image: UIImageView!
+    @IBOutlet weak var line_2_image: UIImageView!
+    @IBOutlet weak var line_3_image: UIImageView!
+    @IBOutlet weak var line_4_image: UIImageView!
+    
+    // Database status images
+    @IBOutlet weak var line_1_database_image: UIImageView!
+    @IBOutlet weak var line_2_database_image: UIImageView!
+    @IBOutlet weak var line_3_database_image: UIImageView!
+    @IBOutlet weak var line_4_database_image: UIImageView!
+    
+    // Row backgrounds
+    @IBOutlet weak var line_1_row: UIView!
+    @IBOutlet weak var line_2_row: UIView!
+    @IBOutlet weak var line_3_row: UIView!
+    @IBOutlet weak var line_4_row: UIView!
+    
+    // Text on rows
+    @IBOutlet weak var line_1_text: UILabel!
+    @IBOutlet weak var line_2_text: UILabel!
+    @IBOutlet weak var line_3_text: UILabel!
+    @IBOutlet weak var line_4_text: UILabel!
+    
+    // ------------------------------------------------------
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,14 +119,13 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
             var lineNumber = "n/a"
             var startOrEnd = "n/a"
             var inboundOrOutbound = "n/a"
-            var duration = "n/a"
-            var ckSum = "B"
-            var callRing = "n/a"
+            //var duration = "n/a"
+            //var ckSum = "B"
+            //var callRing = "n/a"
             var callTime = "01/01 0:00:00"
             var phoneNumber = "n/a"
             var callerId = "n/a"
             var detailedType = "n/a"
-            var isDetailed = false
             
             // define CallerID.com regex strings used for parsing CallerID.com hardware formats
             let callRecordPattern = ".*(\\d\\d) ([IO]) ([ES]) (\\d{4}) ([GB]) (.)(\\d) (\\d\\d/\\d\\d \\d\\d:\\d\\d [AP]M) (.{8,15})(.*)"
@@ -122,9 +151,9 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                         lineNumber = udpRecieved.substring(with: result!.rangeAt(1))
                         inboundOrOutbound = udpRecieved.substring(with: result!.rangeAt(2))
                         startOrEnd = udpRecieved.substring(with: result!.rangeAt(3))
-                        duration = udpRecieved.substring(with: result!.rangeAt(4))
-                        ckSum = udpRecieved.substring(with: result!.rangeAt(5))
-                        callRing = udpRecieved.substring(with: result!.rangeAt(6)) + udpRecieved.substring(with: result!.rangeAt(7))
+                        //duration = udpRecieved.substring(with: result!.rangeAt(4))
+                        //ckSum = udpRecieved.substring(with: result!.rangeAt(5))
+                        //callRing = udpRecieved.substring(with: result!.rangeAt(6)) + udpRecieved.substring(with: result!.rangeAt(7))
                         callTime = udpRecieved.substring(with: result!.rangeAt(8))
                         phoneNumber = udpRecieved.substring(with: result!.rangeAt(9))
                         callerId = udpRecieved.substring(with: result!.rangeAt(10))
@@ -144,8 +173,6 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                 {(result : NSTextCheckingResult?, _, _) in
                     let capturedRange = result!.rangeAt(1)
                     if !NSEqualRanges(capturedRange, NSMakeRange(NSNotFound, 0)) {
-                        
-                        isDetailed = true
                         
                         lineNumber = udpRecieved.substring(with: result!.rangeAt(1))
                         detailedType = udpRecieved.substring(with: result!.rangeAt(2))
@@ -169,7 +196,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
             // Exit this code if both regex expressions failed
             if(lineNumber == "n/a"){ return }
             
-            // Create reference variable to determine correct handling
+            // Create reference variable to determine correct handling -----------
             var type = "n/a"
             var indicator = "n/a"
             
@@ -193,10 +220,19 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                 
             }
             
-            // create filter to use with determining call types below
-            var filter = type + indicator;
+            // -------------------------------------------------------------------
             
-            // --
+            // create filter to use with determining call types below
+            let filter = type + indicator;
+            
+            // ----------
+            
+            // Pad phone number and callerid
+            phoneNumber = phoneNumber.padding(toLength: 14, withPad: " ", startingAt: 0)
+            callerId = callerId.padding(toLength: 15, withPad: " ", startingAt: 0)
+            
+            // ---------
+            
             switch lineNumber {
                 
             case "01":
@@ -212,14 +248,10 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     //-------------------------------------------------
                     
                     // Change line 1 picture to ringing
+                    line_1_image.image = UIImage(named: "ring.png")
                     
                     // Change background color of table row to green for incoming call
-                    
-                    // Show time on line 1 row
-                    
-                    // Show callerid (name & number)
-                    
-                    //-------------------------------------------------
+                    line_1_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
                     
                     break
                     
@@ -230,10 +262,10 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     //-------------------------------------------------
                     
                     // Change row background color to green for incoming call
+                    line_1_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
                     
-                    // Show time on line 1 row
-                    
-                    // Show callerid (name & number)
+                    // Show time and callerid (name & number)
+                    line_1_text.text = "01: " + callTime + "  " + phoneNumber + "  " + callerId
                     
                     break
                     
@@ -244,6 +276,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     //-------------------------------------------------
                     
                     // Change image to show phone off-hook
+                    line_1_image.image = UIImage(named: "off-hook.png")
                     
                     break
                     
@@ -254,8 +287,10 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     //-------------------------------------------------
                     
                     // Change row background color back to idle
+                    line_1_row.backgroundColor = #colorLiteral(red: 0.1651657283, green: 0.2489949437, blue: 0.4013115285, alpha: 1)
                     
                     // Change image back to not-ringing
+                    line_1_image.image = UIImage(named: "idle.png")
                     
                     break
                     
@@ -276,12 +311,13 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     //-------------------------------------------------
                     
                     // Change image to show phone off-hook
+                    line_1_image.image = UIImage(named: "off-hook.png")
                     
                     // Change background color to blue for outbound call
+                    line_1_row.backgroundColor = #colorLiteral(red: 0.328819922, green: 0.5575907389, blue: 0.6772587435, alpha: 1)
                     
-                    // Show time on line 1 row
-                    
-                    // Show callerid (name & number)
+                    // Show time and callerid (name & number)
+                    line_1_text.text = "01: " + callTime + "  " + phoneNumber + "  " + callerId
                     
                     break
                     
@@ -306,13 +342,205 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                 
                 //-------------------- LINE 2 -------------------------
                 
-                
+                switch filter {
+                    
+                case "R":
+                    
+                    //-------------------------------------------------
+                    // Line 2 ringing
+                    //-------------------------------------------------
+                    
+                    // Change line 2 picture to ringing
+                    line_2_image.image = UIImage(named: "ring.png")
+                    
+                    // Change background color of table row to green for incoming call
+                    line_2_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
+                    
+                    break
+                    
+                case "IS":
+                    
+                    //-------------------------------------------------
+                    // Line 2 - inbound start record
+                    //-------------------------------------------------
+                    
+                    // Change row background color to green for incoming call
+                    line_2_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
+                    
+                    // Show time and callerid (name & number)
+                    line_2_text.text = "02: " + callTime + "  " + phoneNumber + "  " + callerId
+                    
+                    break
+                    
+                case "F":
+                    
+                    //-------------------------------------------------
+                    // Line 2 - off hook
+                    //-------------------------------------------------
+                    
+                    // Change image to show phone off-hook
+                    line_2_image.image = UIImage(named: "off-hook.png")
+                    
+                    break
+                    
+                case "N":
+                    
+                    //-------------------------------------------------
+                    // Line 2 - on hook
+                    //-------------------------------------------------
+                    
+                    // Change row background color back to idle
+                    line_2_row.backgroundColor = #colorLiteral(red: 0.1651657283, green: 0.2489949437, blue: 0.4013115285, alpha: 1)
+                    
+                    // Change image back to not-ringing
+                    line_2_image.image = UIImage(named: "idle.png")
+                    
+                    break
+                    
+                case "IE":
+                    
+                    //-------------------------------------------------
+                    // Line 2 - inbound end record
+                    //-------------------------------------------------
+                    
+                    // add your code if needed
+                    
+                    break
+                    
+                case "OS":
+                    
+                    //-------------------------------------------------
+                    // Line 2 - outbound start record
+                    //-------------------------------------------------
+                    
+                    // Change image to show phone off-hook
+                    line_2_image.image = UIImage(named: "off-hook.png")
+                    
+                    // Change background color to blue for outbound call
+                    line_2_row.backgroundColor = #colorLiteral(red: 0.328819922, green: 0.5575907389, blue: 0.6772587435, alpha: 1)
+                    
+                    // Show time and callerid (name & number)
+                    line_2_text.text = "01: " + callTime + "  " + phoneNumber + "  " + callerId
+                    
+                    break
+                    
+                case "OE":
+                    
+                    //-------------------------------------------------
+                    // Line 2 - outbound end record
+                    //-------------------------------------------------
+                    
+                    // add your code if needed
+                    
+                    break
+                    
+                default:
+                    return
+                }
+
                 
                 break
                 
             case "03":
                 
                 //-------------------- LINE 3 -------------------------
+                
+                switch filter {
+                    
+                case "R":
+                    
+                    //-------------------------------------------------
+                    // Line 3 ringing
+                    //-------------------------------------------------
+                    
+                    // Change line 3 picture to ringing
+                    line_3_image.image = UIImage(named: "ring.png")
+                    
+                    // Change background color of table row to green for incoming call
+                    line_3_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
+                    
+                    break
+                    
+                case "IS":
+                    
+                    //-------------------------------------------------
+                    // Line 3 - inbound start record
+                    //-------------------------------------------------
+                    
+                    // Change row background color to green for incoming call
+                    line_3_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
+                    
+                    // Show time and callerid (name & number)
+                    line_3_text.text = "01: " + callTime + "  " + phoneNumber + "  " + callerId
+                    
+                    break
+                    
+                case "F":
+                    
+                    //-------------------------------------------------
+                    // Line 3 - off hook
+                    //-------------------------------------------------
+                    
+                    // Change image to show phone off-hook
+                    line_3_image.image = UIImage(named: "off-hook.png")
+                    
+                    break
+                    
+                case "N":
+                    
+                    //-------------------------------------------------
+                    // Line 3 - on hook
+                    //-------------------------------------------------
+                    
+                    // Change row background color back to idle
+                    line_3_row.backgroundColor = #colorLiteral(red: 0.1651657283, green: 0.2489949437, blue: 0.4013115285, alpha: 1)
+                    
+                    // Change image back to not-ringing
+                    line_3_image.image = UIImage(named: "idle.png")
+                    
+                    break
+                    
+                case "IE":
+                    
+                    //-------------------------------------------------
+                    // Line 3 - inbound end record
+                    //-------------------------------------------------
+                    
+                    // add your code if needed
+                    
+                    break
+                    
+                case "OS":
+                    
+                    //-------------------------------------------------
+                    // Line 3 - outbound start record
+                    //-------------------------------------------------
+                    
+                    // Change image to show phone off-hook
+                    line_3_image.image = UIImage(named: "off-hook.png")
+                    
+                    // Change background color to blue for outbound call
+                    line_3_row.backgroundColor = #colorLiteral(red: 0.328819922, green: 0.5575907389, blue: 0.6772587435, alpha: 1)
+                    
+                    // Show time and callerid (name & number)
+                    line_3_text.text = "01: " + callTime + "  " + phoneNumber + "  " + callerId
+                    
+                    break
+                    
+                case "OE":
+                    
+                    //-------------------------------------------------
+                    // Line 3 - outbound end record
+                    //-------------------------------------------------
+                    
+                    // add your code if needed
+                    
+                    break
+                    
+                default:
+                    return
+                }
+
                 
                 
                 
@@ -322,6 +550,101 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                 
                 //-------------------- LINE 4 -------------------------
                 
+                switch filter {
+                    
+                case "R":
+                    
+                    //-------------------------------------------------
+                    // Line 4 ringing
+                    //-------------------------------------------------
+                    
+                    // Change line 4 picture to ringing
+                    line_4_image.image = UIImage(named: "ring.png")
+                    
+                    // Change background color of table row to green for incoming call
+                    line_4_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
+                    
+                    break
+                    
+                case "IS":
+                    
+                    //-------------------------------------------------
+                    // Line 4 - inbound start record
+                    //-------------------------------------------------
+                    
+                    // Change row background color to green for incoming call
+                    line_4_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
+                    
+                    // Show time and callerid (name & number)
+                    line_4_text.text = "01: " + callTime + "  " + phoneNumber + "  " + callerId
+                    
+                    break
+                    
+                case "F":
+                    
+                    //-------------------------------------------------
+                    // Line 4 - off hook
+                    //-------------------------------------------------
+                    
+                    // Change image to show phone off-hook
+                    line_4_image.image = UIImage(named: "off-hook.png")
+                    
+                    break
+                    
+                case "N":
+                    
+                    //-------------------------------------------------
+                    // Line 4 - on hook
+                    //-------------------------------------------------
+                    
+                    // Change row background color back to idle
+                    line_4_row.backgroundColor = #colorLiteral(red: 0.1651657283, green: 0.2489949437, blue: 0.4013115285, alpha: 1)
+                    
+                    // Change image back to not-ringing
+                    line_4_image.image = UIImage(named: "idle.png")
+                    
+                    break
+                    
+                case "IE":
+                    
+                    //-------------------------------------------------
+                    // Line 4 - inbound end record
+                    //-------------------------------------------------
+                    
+                    // add your code if needed
+                    
+                    break
+                    
+                case "OS":
+                    
+                    //-------------------------------------------------
+                    // Line 4 - outbound start record
+                    //-------------------------------------------------
+                    
+                    // Change image to show phone off-hook
+                    line_4_image.image = UIImage(named: "off-hook.png")
+                    
+                    // Change background color to blue for outbound call
+                    line_4_row.backgroundColor = #colorLiteral(red: 0.328819922, green: 0.5575907389, blue: 0.6772587435, alpha: 1)
+                    
+                    // Show time and callerid (name & number)
+                    line_4_text.text = "01: " + callTime + "  " + phoneNumber + "  " + callerId
+                    
+                    break
+                    
+                case "OE":
+                    
+                    //-------------------------------------------------
+                    // Line 4 - outbound end record
+                    //-------------------------------------------------
+                    
+                    // add your code if needed
+                    
+                    break
+                    
+                default:
+                    return
+                }
                 
                 
                 break

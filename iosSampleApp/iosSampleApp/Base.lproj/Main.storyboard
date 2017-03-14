@@ -24,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3ne-N5-xhA" id="VX8-4N-Jn3">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="k8P-Ep-g7x">
@@ -35,10 +35,10 @@
                                                     <rect key="frame" x="500" y="8" width="49" height="49"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01:    1:00pm  770-263-7111    CallerID.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIB-h5-L5e">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01: no calls" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIB-h5-L5e">
                                                     <rect key="frame" x="77" y="22" width="415" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
                                                     <color key="textColor" red="0.97763905689999997" green="0.97944538010000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -54,7 +54,7 @@
                                         <rect key="frame" x="0.0" y="65" width="667" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0oM-6A-sE5" id="7V7-IV-qvF">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="fIV-te-Har">
@@ -65,10 +65,10 @@
                                                     <rect key="frame" x="500" y="8" width="48" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="02:    2:00pm  770-263-7111    CallerID.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsz-Ro-ngC">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="02: no calls" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsz-Ro-ngC">
                                                     <rect key="frame" x="77" y="22" width="415" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
                                                     <color key="textColor" red="0.97763905689999997" green="0.97944538010000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -84,7 +84,7 @@
                                         <rect key="frame" x="0.0" y="130" width="667" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B1c-C3-t3h" id="XX3-HT-5MJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="iVs-YM-2eI">
@@ -95,10 +95,10 @@
                                                     <rect key="frame" x="500" y="7" width="49" height="49"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="03:    3:00pm  770-263-7111    CallerID.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIY-e4-5mA">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="03: no calls" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIY-e4-5mA">
                                                     <rect key="frame" x="77" y="21" width="415" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
                                                     <color key="textColor" red="0.97763905689999997" green="0.97944538010000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -114,7 +114,7 @@
                                         <rect key="frame" x="0.0" y="195" width="667" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tUN-1m-LWU" id="U5M-dL-aed">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="vEL-wX-PDR">
@@ -125,10 +125,10 @@
                                                     <rect key="frame" x="500" y="8" width="49" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="04:    4:00pm  770-263-7111    CallerID.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ht8-ta-cYM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="04: no calls" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ht8-ta-cYM">
                                                     <rect key="frame" x="77" y="22" width="415" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
                                                     <color key="textColor" red="0.97763905689999997" green="0.97944538010000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -145,6 +145,24 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="CallerID.com Sample App" id="h3T-mu-t8W"/>
+                    <connections>
+                        <outlet property="line_1_database_image" destination="YZx-j5-lCp" id="UzP-jm-Pur"/>
+                        <outlet property="line_1_image" destination="k8P-Ep-g7x" id="x3k-Cx-uwH"/>
+                        <outlet property="line_1_row" destination="VX8-4N-Jn3" id="B8p-Dl-vSD"/>
+                        <outlet property="line_1_text" destination="xIB-h5-L5e" id="k1J-yd-Drb"/>
+                        <outlet property="line_2_database_image" destination="2m2-Ny-UrK" id="mv9-yN-Azv"/>
+                        <outlet property="line_2_image" destination="fIV-te-Har" id="cZ2-EJ-8XJ"/>
+                        <outlet property="line_2_row" destination="7V7-IV-qvF" id="CUF-Pv-u3J"/>
+                        <outlet property="line_2_text" destination="dsz-Ro-ngC" id="5gf-jl-7UI"/>
+                        <outlet property="line_3_database_image" destination="a8L-Be-Odw" id="rgN-zr-K5Q"/>
+                        <outlet property="line_3_image" destination="iVs-YM-2eI" id="NkO-wx-aBG"/>
+                        <outlet property="line_3_row" destination="XX3-HT-5MJ" id="ntz-eE-Bb9"/>
+                        <outlet property="line_3_text" destination="qIY-e4-5mA" id="3sO-iR-CvY"/>
+                        <outlet property="line_4_database_image" destination="I3M-vZ-mLv" id="dJD-B6-cpi"/>
+                        <outlet property="line_4_image" destination="vEL-wX-PDR" id="XQz-5o-wmA"/>
+                        <outlet property="line_4_row" destination="U5M-dL-aed" id="hxQ-nc-5ih"/>
+                        <outlet property="line_4_text" destination="Ht8-ta-cYM" id="Mdj-7r-etB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oeM-zh-hjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,7 +188,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="contacts_idle.png" width="720" height="720"/>
+        <image name="contacts_idle.png" width="335" height="335"/>
         <image name="idle.png" width="335" height="335"/>
     </resources>
 </document>
