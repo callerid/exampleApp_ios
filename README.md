@@ -34,6 +34,14 @@ To begin your own iOS project do the following:
 	pod 'CocoaAsyncSocket'
 	pod 'FMDB'
 	
+	************************************************************* 
+	You will also need *.m and *.h files from the 'src' folder
+	of the FMDB github repo. Place them in your project.
+	
+	https://github.com/ccgus/fmdb
+	
+	*************************************************************
+	
 4- In terminal CD to your project directory
     Run 'pod install' to add dependencies to your project
 	
@@ -43,3 +51,19 @@ To begin your own iOS project do the following:
 	***************************************************
 	
 5- Refer to this repo's source example for help.
+
+
+
+
+-------------------------------------------------------------------------------
+References (web references used for this project)
+-------------------------------------------------------------------------------
+
+For UDP receiver help:
+https://github.com/robbiehanson/CocoaAsyncSocket
+https://github.com/stansidel/udpserver_swift
+
+
+For FMDB database help:
+http://www.appcoda.com/fmdb-sqlite-database/
+https://github.com/ccgus/fmdb
