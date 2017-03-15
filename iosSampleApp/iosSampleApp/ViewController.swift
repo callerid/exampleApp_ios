@@ -39,7 +39,51 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
     @IBOutlet weak var line_3_text: UILabel!
     @IBOutlet weak var line_4_text: UILabel!
     
-    // ------------------------------------------------------
+    // -------------------------------------------------------------------------
+    //                      Segues to the contacts view
+    // -------------------------------------------------------------------------
+    
+    @IBAction func line_1_move_to_info(_ sender: UITapGestureRecognizer) {
+    
+        if line_1_text.text?.lowercased().range(of:"no calls") == nil {
+            
+            performSegue(withIdentifier: "segue_main_to_info", sender: self)
+            
+        }
+    
+    }
+    
+    @IBAction func line_2_move_to_info(_ sender: UITapGestureRecognizer) {
+    
+        if line_2_text.text?.lowercased().range(of:"no calls") == nil {
+            
+            performSegue(withIdentifier: "segue_main_to_info", sender: self)
+            
+        }
+    
+    }
+    
+    @IBAction func line_3_move_to_info(_ sender: UITapGestureRecognizer) {
+    
+        if line_3_text.text?.lowercased().range(of:"no calls") == nil {
+            
+            performSegue(withIdentifier: "segue_main_to_info", sender: self)
+            
+        }
+    
+    }
+    
+    @IBAction func line_4_move_to_info(_ sender: UITapGestureRecognizer) {
+    
+        if line_4_text.text?.lowercased().range(of:"no calls") == nil {
+            
+            performSegue(withIdentifier: "segue_main_to_info", sender: self)
+            
+        }
+    
+    }
+    
+    // ------------------------------------------------------------------------
     
     override func viewDidLoad() {
         super.viewDidLoad()

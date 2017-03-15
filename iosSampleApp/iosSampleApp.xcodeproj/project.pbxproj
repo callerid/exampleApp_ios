@@ -13,6 +13,7 @@
 		0425CB801E7978620024527F /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0425CB781E7978620024527F /* FMDatabaseQueue.m */; };
 		0425CB811E7978620024527F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0425CB7B1E7978620024527F /* FMResultSet.m */; };
 		0425CB821E7978620024527F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0425CB7C1E7978620024527F /* Info.plist */; };
+		0425CB841E79999F0024527F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0425CB831E79999F0024527F /* libsqlite3.tbd */; };
 		046EA30A1E78549F000A62D6 /* contacts_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EA3041E78549F000A62D6 /* contacts_add.png */; };
 		046EA30B1E78549F000A62D6 /* contacts_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EA3051E78549F000A62D6 /* contacts_idle.png */; };
 		046EA30C1E78549F000A62D6 /* contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EA3061E78549F000A62D6 /* contacts.png */; };
@@ -61,6 +62,7 @@
 		0425CB7A1E7978620024527F /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = fmdb/FMResultSet.h; sourceTree = "<group>"; };
 		0425CB7B1E7978620024527F /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = fmdb/FMResultSet.m; sourceTree = "<group>"; };
 		0425CB7C1E7978620024527F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = fmdb/Info.plist; sourceTree = "<group>"; };
+		0425CB831E79999F0024527F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		046EA3041E78549F000A62D6 /* contacts_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contacts_add.png; path = Images/contacts_add.png; sourceTree = SOURCE_ROOT; };
 		046EA3051E78549F000A62D6 /* contacts_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contacts_idle.png; path = Images/contacts_idle.png; sourceTree = SOURCE_ROOT; };
 		046EA3061E78549F000A62D6 /* contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contacts.png; path = Images/contacts.png; sourceTree = SOURCE_ROOT; };
@@ -91,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0425CB841E79999F0024527F /* libsqlite3.tbd in Frameworks */,
 				D5712BEB2FE54B34DA03BCCA /* Pods_iosSampleApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +199,7 @@
 		8E6E490A915701F6493FD334 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0425CB831E79999F0024527F /* libsqlite3.tbd */,
 				474539C6ACE5A81F06A47667 /* Pods_iosSampleApp.framework */,
 			);
 			name = Frameworks;
