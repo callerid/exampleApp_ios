@@ -9,7 +9,84 @@
 import UIKit
 
 class DBManager: NSObject {
+    
+    // ------------------------------------------------------------
+    // Setup database class for connecting/editing/closing database
+    // ------------------------------------------------------------
+    static let shared: DBManager = DBManager()
 
+    
+    //-------------------------------------------------------------
+    // Variable storing for database use
+    //-------------------------------------------------------------
+    var line_1_last_number:String = "no calls"
+    var line_2_last_number:String = "no calls"
+    var line_3_last_number:String = "no calls"
+    var line_4_last_number:String = "no calls"
+    var line_selected_for_info = 1
+    
+    //----------------------------------------
+    //         Getters and setters
+    //----------------------------------------
+    func setLineLastNumber(line:Int,number:String) {
+        
+        switch line {
+        case 1:
+            line_1_last_number=number
+            break
+            
+        case 2:
+            line_2_last_number=number
+            break
+            
+        case 3:
+            line_3_last_number=number
+            break
+            
+        case 4:
+            line_4_last_number=number
+            break
+            
+        default:
+            break
+        }
+        
+    }
+    
+    func setLineSelected(line:Int){
+        line_selected_for_info = line
+    }
+    
+    func getLineSelected() -> Int {
+        return line_selected_for_info
+    }
+    
+    func getLineLastNumber(line:Int) -> String {
+        
+        switch line {
+        
+        case 1:
+            return line_1_last_number
+            
+        case 2:
+            return line_2_last_number
+            
+        case 3:
+            return line_3_last_number
+            
+        case 4:
+            return line_4_last_number
+            
+        default:
+            return "no calls"
+        }
+        
+    }
+    
+    //-------------------------------------------------------------
+    //                      DATABASE FUNCTIONS
+    //-------------------------------------------------------------
+    
     // Setup field constants for accessing fields in database
     let field_datetime = "DateTime"
     let field_line = "Line"
@@ -25,8 +102,6 @@ class DBManager: NSObject {
     let field_state = "State"
     let field_zip = "Zip"
     
-    // Make singleton
-    static let shared: DBManager = DBManager()
     
     // Needed database variables
     let databaseFileName = "database.sqlite"
@@ -59,7 +134,7 @@ class DBManager: NSObject {
                     
                     // Create tables with needed formats
                     let creationQuery =
-                    "CREATE TABLE calls (id INTEGER PRIMARY KEY AUTOICREMENT NOT NULL," +
+                    "CREATE TABLE calls (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                         "DateTime TEXT," +
                         "Line TEXT," +
                         "Type TEXT," +
@@ -71,7 +146,7 @@ class DBManager: NSObject {
                         "Name TEXT" +
                         ");" +
                         
-                    "CREATE TABLE contacts (id INTEGER PRIMARY KEY AUTOICREMENT NOT NULL," +
+                    "CREATE TABLE contacts (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                         "Name TEXT," +
                         "Number TEXT," +
                         "Address, " +
@@ -80,14 +155,9 @@ class DBManager: NSObject {
                         "Zip" +
                         ");"
                     
-                    do {
-                        try database.executeUpdate(creationQuery, values: nil)
-                        created = true
-                    }
-                    catch {
-                        print("Could not create tables.")
-                        print(error.localizedDescription)
-                    }
+                    
+                    database.executeStatements(creationQuery)
+                    created = true
                     
                     // At the end close the database.
                     database.close()
@@ -131,7 +201,8 @@ class DBManager: NSObject {
             
             if !database.executeStatements(query) {
                 print("Query Failed: " + query)
-                print(database.lastError(), database.lastErrorMessage())
+                let errorString = (database.lastError(), database.lastErrorMessage())
+                print(errorString)
                 return false
             }
             
@@ -190,12 +261,12 @@ class DBManager: NSObject {
                 "" +
                 ") VALUES (" +
                 "" +
-                "\(name)," +
-                "\(number)," +
-                "\(address)," +
-                "\(city)," +
-                "\(state)," +
-                "\(zip)" +
+                "'\(name)'," +
+                "'\(number)'," +
+                "'\(address)'," +
+                "'\(city)'," +
+                "'\(state)'," +
+                "'\(zip)'" +
                 ");"
             
         }

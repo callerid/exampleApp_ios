@@ -206,10 +206,10 @@
             </objects>
             <point key="canvasLocation" x="920.68965517241384" y="26.399999999999999"/>
         </scene>
-        <!--Table View Controller-->
+        <!--View Controller-->
         <scene sceneID="ZuP-f1-Uhq">
             <objects>
-                <tableViewController id="hmp-dk-xth" sceneMemberID="viewController">
+                <tableViewController id="hmp-dk-xth" customClass="ViewController" customModule="iosSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HR1-uL-Woh">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,7 +263,7 @@
                                                     <color key="textColor" red="0.97763905689999997" green="0.97944538010000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tqu-ty-g5P">
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tqu-ty-g5P">
                                                     <rect key="frame" x="106" y="2" width="440" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="440" id="mx7-tX-0zn"/>
@@ -427,6 +427,14 @@
                             <outlet property="delegate" destination="hmp-dk-xth" id="FtP-1K-QCT"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="info_address" destination="MRa-i7-SPD" id="Mhi-Z8-LBm"/>
+                        <outlet property="info_city" destination="KJN-T3-pVm" id="xIP-8I-WfP"/>
+                        <outlet property="info_name" destination="1eM-T5-gr6" id="ZN6-hV-Aa2"/>
+                        <outlet property="info_number" destination="Tqu-ty-g5P" id="ORx-iX-RyG"/>
+                        <outlet property="info_state" destination="aFc-xf-Vmx" id="9ye-tc-Lrn"/>
+                        <outlet property="info_zip" destination="ycE-oG-w5p" id="wnH-0x-XLM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NO0-TW-zNs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

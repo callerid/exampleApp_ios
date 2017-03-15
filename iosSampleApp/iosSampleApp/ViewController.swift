@@ -11,10 +11,13 @@ import CocoaAsyncSocket
 
 class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
 
-    // ------------------------------------------------------
+    // ----------------------------------------------------------------------------
     //        Setup UI elements to allow for editing
-    // ------------------------------------------------------
+    // ----------------------------------------------------------------------------
     
+    // ------------------------------------------------------
+    //                      Main View
+    // ------------------------------------------------------
     // Phone status images
     @IBOutlet weak var line_1_image: UIImageView!
     @IBOutlet weak var line_2_image: UIImageView!
@@ -39,14 +42,27 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
     @IBOutlet weak var line_3_text: UILabel!
     @IBOutlet weak var line_4_text: UILabel!
     
+    // ------------------------------------------------------
+    //                      Info View
+    // ------------------------------------------------------
+    @IBOutlet weak var info_name: UITextField!
+    @IBOutlet weak var info_number: UITextField!
+    @IBOutlet weak var info_address: UITextField!
+    @IBOutlet weak var info_city: UITextField!
+    @IBOutlet weak var info_state: UITextField!
+    @IBOutlet weak var info_zip: UITextField!
+    
+    // ----------------------------------------------------------------------------
+    
     // -------------------------------------------------------------------------
     //                      Segues to the contacts view
     // -------------------------------------------------------------------------
     
     @IBAction func line_1_move_to_info(_ sender: UITapGestureRecognizer) {
     
-        if line_1_text.text?.lowercased().range(of:"no calls") == nil {
+        if(DBManager.shared.getLineLastNumber(line: 1) != "no calls"){
             
+            DBManager.shared.setLineSelected(line: 1)
             performSegue(withIdentifier: "segue_main_to_info", sender: self)
             
         }
@@ -55,8 +71,9 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
     
     @IBAction func line_2_move_to_info(_ sender: UITapGestureRecognizer) {
     
-        if line_2_text.text?.lowercased().range(of:"no calls") == nil {
+        if(DBManager.shared.getLineLastNumber(line: 2) != "no calls"){
             
+            DBManager.shared.setLineSelected(line: 2)
             performSegue(withIdentifier: "segue_main_to_info", sender: self)
             
         }
@@ -65,8 +82,9 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
     
     @IBAction func line_3_move_to_info(_ sender: UITapGestureRecognizer) {
     
-        if line_3_text.text?.lowercased().range(of:"no calls") == nil {
+        if(DBManager.shared.getLineLastNumber(line: 3) != "no calls"){
             
+            DBManager.shared.setLineSelected(line: 3)
             performSegue(withIdentifier: "segue_main_to_info", sender: self)
             
         }
@@ -75,8 +93,9 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
     
     @IBAction func line_4_move_to_info(_ sender: UITapGestureRecognizer) {
     
-        if line_4_text.text?.lowercased().range(of:"no calls") == nil {
+        if(DBManager.shared.getLineLastNumber(line: 4) != "no calls"){
             
+            DBManager.shared.setLineSelected(line: 4)
             performSegue(withIdentifier: "segue_main_to_info", sender: self)
             
         }
@@ -84,19 +103,116 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
     }
     
     // ------------------------------------------------------------------------
+    //                      Text changing on info view
+    // ------------------------------------------------------------------------
+    
+    
+    
+    // ------------------------------------------------------------------------
+    //                   Loading and moving between views
+    // ------------------------------------------------------------------------
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Create database if not already created
+        if(DBManager.shared.createDatabase()){
+            // Database created
+        }
+        else{
+            // Database failed to create
+        }
+        
+        // If loading main to info screen
+        if(info_number != nil){
+            
+            // Load info into textfields
+            populateInfoFromDatabase()
+            
+            // Add event handlers for textfields
+            info_name.addTarget(self, action: #selector(updateInfoInDataBase(textField:)), for: .editingDidEnd)
+            info_address.addTarget(self, action: #selector(updateInfoInDataBase(textField:)), for: .editingDidEnd)
+            info_state.addTarget(self, action: #selector(updateInfoInDataBase(textField:)), for: .editingDidEnd)
+            info_state.addTarget(self, action: #selector(updateInfoInDataBase(textField:)), for: .editingDidEnd)
+            info_zip.addTarget(self, action: #selector(updateInfoInDataBase(textField:)), for: .editingDidEnd)
+            
+        }
+        
         // start UDP server to listen to CallerID.com port (3520)
         startServer()
+        
+        // Setup links between text fields and updating code for info screen
+    }
+    
+    func updateInfoInDataBase(textField: UITextField){
+        
+        if(DBManager.shared.insertOrUpdateContact(name: info_name.text!,
+                                               number: info_number.text!,
+                                               address: info_address.text!,
+                                               city: info_city.text!,
+                                               state: info_state.text!,
+                                               zip: info_zip.text!)){
+            // Worked
+            print("Inserted")
+            
+        }
+        else{
+            
+            // Failed toupdate
+            print("Failed to insert")
+            
+        }
+        
+    }
+    
+    // -----------------------------------------------------------------------------
+    //   Load in all known info for the number last received on selected line number
+    // -----------------------------------------------------------------------------
+    
+    func populateInfoFromDatabase(){
+        
+        // Get the last received number for the selected line
+        let number = DBManager.shared.getLineLastNumber(line: DBManager.shared.getLineSelected())
+        
+        // Check database for contact with number selected
+        var dbResult = DBManager.shared.checkCallerIdForMatch(number: number)
+        
+        // If number not found then populate info screen with <insert info>
+        if(dbResult[0] == "not found"){
+            
+            info_name.text = "add info"
+            info_number.text = number
+            info_address.text = "add info"
+            info_city.text = "add info"
+            info_state.text = "add info"
+            info_zip.text = "add info"
+            
+            return
+            
+        }
+        else{
+            
+            info_name.text = dbResult[0]
+            info_number.text = number
+            info_address.text = dbResult[1]
+            info_city.text = dbResult[2]
+            info_state.text = dbResult[3]
+            info_zip.text = dbResult[4]
+            
+            return
+            
+        }
+        
     }
 
+    // --------------------------------------------------------------------------------------
+    //                    ALL UDP LOWER LEVEL CODE
+    // --------------------------------------------------------------------------------------
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
     fileprivate var _socket: GCDAsyncUdpSocket?
     fileprivate var socket: GCDAsyncUdpSocket? {
@@ -152,6 +268,12 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
         }
         
     }
+    
+    // --------------------------------------------------------------------------------------
+    
+    // -------------------------------------------------------------------------
+    //                     Receive data from a UDP broadcast
+    // -------------------------------------------------------------------------
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
         
@@ -239,6 +361,14 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
             
             // Exit this code if both regex expressions failed
             if(lineNumber == "n/a"){ return }
+            
+            // Update phone number variables for searching
+            if(phoneNumber != "n/a"){
+               
+                let lineNum = Int(lineNumber)
+                DBManager.shared.setLineLastNumber(line: lineNum!, number: phoneNumber)
+                
+            }
             
             // Create reference variable to determine correct handling -----------
             var type = "n/a"
