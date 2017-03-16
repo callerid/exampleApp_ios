@@ -25,9 +25,73 @@ class DBManager: NSObject {
     var line_4_last_number:String = "no calls"
     var line_selected_for_info = 1
     
+    var line_1_change_to_idle:Bool = false
+    var line_2_change_to_idle:Bool = false
+    var line_3_change_to_idle:Bool = false
+    var line_4_change_to_idle:Bool = false
+    
     //----------------------------------------
     //         Getters and setters
     //----------------------------------------
+    
+    func setChangeToIdle(number:String, value:Bool) {
+        
+        if(number == line_1_last_number){
+        
+            line_1_change_to_idle = value
+        
+        }
+        
+        if(number == line_2_last_number){
+            
+            line_2_change_to_idle = value
+            
+        }
+        
+        if(number == line_3_last_number){
+            
+            line_3_change_to_idle = value
+            
+        }
+        
+        if(number == line_4_last_number){
+            
+            line_4_change_to_idle = value
+            
+        }
+        
+    }
+    
+    func getChangeToIdle(number:String) -> Bool {
+        
+        if(number == line_1_last_number){
+            
+            return line_1_change_to_idle
+            
+        }
+        
+        if(number == line_2_last_number){
+            
+            return line_2_change_to_idle
+            
+        }
+        
+        if(number == line_3_last_number){
+            
+            return line_3_change_to_idle
+            
+        }
+        
+        if(number == line_4_last_number){
+            
+            return line_4_change_to_idle
+            
+        }
+        
+        return false
+        
+    }
+    
     func setLineLastNumber(line:Int,number:String) {
         
         switch line {

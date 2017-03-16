@@ -103,12 +103,6 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
     }
     
     // ------------------------------------------------------------------------
-    //                      Text changing on info view
-    // ------------------------------------------------------------------------
-    
-    
-    
-    // ------------------------------------------------------------------------
     //                   Loading and moving between views
     // ------------------------------------------------------------------------
     
@@ -138,10 +132,54 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
             
         }
         
-        // start UDP server to listen to CallerID.com port (3520)
+        // -------------------------------------------------
+        
+        // Start UDP server to listen to CallerID.com port (3520)
         startServer()
         
-        // Setup links between text fields and updating code for info screen
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // If coming back from info screen try to update database images
+        if(line_1_database_image != nil){
+            updateDatabaseImages()
+        }
+        
+    }
+    
+    func updateDatabaseImages(){
+        
+        // -------------------------------------------------
+        //  Set database images to reflect database changes
+        // -------------------------------------------------
+        
+        if(DBManager.shared.getChangeToIdle(number: DBManager.shared.getLineLastNumber(line: 1))){
+            line_1_database_image.image = UIImage(named: "contacts.png")
+        }
+        
+        if(DBManager.shared.getChangeToIdle(number: DBManager.shared.getLineLastNumber(line: 2))){
+            line_2_database_image.image = UIImage(named: "contacts.png")
+        }
+        
+        if(DBManager.shared.getChangeToIdle(number: DBManager.shared.getLineLastNumber(line: 3))){
+            line_3_database_image.image = UIImage(named: "contacts.png")
+        }
+        
+        if(DBManager.shared.getChangeToIdle(number: DBManager.shared.getLineLastNumber(line: 4))){
+            line_4_database_image.image = UIImage(named: "contacts.png")
+            
+        }
+        
+        // Reset all change variables
+        DBManager.shared.setChangeToIdle(number: DBManager.shared.getLineLastNumber(line: 1), value: false)
+        DBManager.shared.setChangeToIdle(number: DBManager.shared.getLineLastNumber(line: 2), value: false)
+        DBManager.shared.setChangeToIdle(number: DBManager.shared.getLineLastNumber(line: 3), value: false)
+        DBManager.shared.setChangeToIdle(number: DBManager.shared.getLineLastNumber(line: 4), value: false)
+        
+        // -------------------------------------------------
+        
     }
     
     func updateInfoInDataBase(textField: UITextField){
@@ -154,6 +192,9 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                                                zip: info_zip.text!)){
             // Worked
             print("Inserted")
+            
+            // Set variable to change main view image to 'found contact'
+            DBManager.shared.setChangeToIdle(number: info_number.text!, value: true)
             
         }
         else{
@@ -363,10 +404,78 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
             if(lineNumber == "n/a"){ return }
             
             // Update phone number variables for searching
+            // Also update database image based on lookup
             if(phoneNumber != "n/a"){
                
                 let lineNum = Int(lineNumber)
                 DBManager.shared.setLineLastNumber(line: lineNum!, number: phoneNumber)
+                
+                var dbResults = DBManager.shared.checkCallerIdForMatch(number: phoneNumber)
+                
+                if(dbResults[0] != "not found"){
+                    
+                    // -----------------------------------
+                    //   Contact was found in database
+                    // -----------------------------------
+                    
+                    // Update to show contact info in database instead of callerid
+                    callerId = dbResults[0]
+                    
+                    // Update database image
+                    switch lineNumber {
+                    
+                    case "01":
+                        line_1_database_image.image = UIImage(named: "contacts.png")
+                        break
+                        
+                    case "02":
+                        line_2_database_image.image = UIImage(named: "contacts.png")
+                        break
+                        
+                    case "03":
+                        line_3_database_image.image = UIImage(named: "contacts.png")
+                        break
+                        
+                    case "04":
+                        line_4_database_image.image = UIImage(named: "contacts.png")
+                        break
+                        
+                        
+                    default:
+                        break
+                    }
+                    
+                }
+                else{
+                    
+                    // -----------------------------------
+                    //  Contact was not found in database
+                    // -----------------------------------
+                    
+                    switch lineNumber {
+                        
+                    case "01":
+                        line_1_database_image.image = UIImage(named: "contacts_add.png")
+                        break
+                        
+                    case "02":
+                        line_2_database_image.image = UIImage(named: "contacts_add.png")
+                        break
+                        
+                    case "03":
+                        line_3_database_image.image = UIImage(named: "contacts_add.png")
+                        break
+                        
+                    case "04":
+                        line_4_database_image.image = UIImage(named: "contacts_add.png")
+                        break
+                        
+                        
+                    default:
+                        break
+                    }
+                    
+                }
                 
             }
             
