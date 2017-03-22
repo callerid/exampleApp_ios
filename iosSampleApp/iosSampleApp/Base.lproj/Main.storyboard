@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6KM-y4-knw">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,144 +14,188 @@
             <objects>
                 <tableViewController id="jO2-zK-O5Q" customClass="ViewController" customModule="iosSampleApp" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pgW-c7-eMo">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="SIy-q9-f5d">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="3ne-N5-xhA">
-                                        <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="736" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3ne-N5-xhA" id="VX8-4N-Jn3">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="736" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="k8P-Ep-g7x">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="k8P-Ep-g7x" userLabel="line_1_phone_click">
                                                     <rect key="frame" x="20" y="8" width="49" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="ggw-sM-eY2" appends="YES" id="h1Q-xq-FAt"/>
+                                                    </connections>
                                                 </imageView>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01: no calls" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIB-h5-L5e">
+                                                    <rect key="frame" x="77" y="8" width="579" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
+                                                    <color key="textColor" red="0.97763905689999997" green="0.97944538010000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="Kbq-gQ-Ig2" appends="YES" id="Wix-aH-yKb"/>
+                                                    </connections>
+                                                </label>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contacts_idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="YZx-j5-lCp">
-                                                    <rect key="frame" x="500" y="8" width="49" height="49"/>
+                                                    <rect key="frame" x="664" y="8" width="49" height="49"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <gestureRecognizers/>
                                                     <connections>
                                                         <outletCollection property="gestureRecognizers" destination="Ih4-3t-S3j" appends="YES" id="N96-o0-CDM"/>
                                                     </connections>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01: no calls" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIB-h5-L5e">
-                                                    <rect key="frame" x="77" y="22" width="415" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
-                                                    <color key="textColor" red="0.97763905689999997" green="0.97944538010000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.16516572830000001" green="0.2489949437" blue="0.40131152850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <gestureRecognizers/>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="5BQ-MD-Xjf">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="0oM-6A-sE5">
-                                        <rect key="frame" x="0.0" y="65" width="667" height="65"/>
+                                        <rect key="frame" x="0.0" y="65" width="736" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0oM-6A-sE5" id="7V7-IV-qvF">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="736" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="fIV-te-Har">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="fIV-te-Har" userLabel="line_2_phone_click">
                                                     <rect key="frame" x="20" y="8" width="49" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="Z2V-zc-tBl" appends="YES" id="DUc-7I-YdJ"/>
+                                                    </connections>
                                                 </imageView>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="02: no calls" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsz-Ro-ngC">
+                                                    <rect key="frame" x="77" y="8" width="579" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
+                                                    <color key="textColor" red="0.97763905689999997" green="0.97944538010000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="AyD-4a-Ypu" appends="YES" id="lAY-5I-y80"/>
+                                                    </connections>
+                                                </label>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contacts_idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="2m2-Ny-UrK">
-                                                    <rect key="frame" x="500" y="8" width="48" height="48"/>
+                                                    <rect key="frame" x="664" y="8" width="48" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <gestureRecognizers/>
                                                     <connections>
                                                         <outletCollection property="gestureRecognizers" destination="HMl-m8-AcT" appends="YES" id="XfT-Z6-R7R"/>
                                                     </connections>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="02: no calls" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsz-Ro-ngC">
-                                                    <rect key="frame" x="77" y="22" width="415" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
-                                                    <color key="textColor" red="0.97763905689999997" green="0.97944538010000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.16516572830000001" green="0.2489949437" blue="0.40131152850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="Xra-dS-TVj">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="B1c-C3-t3h">
-                                        <rect key="frame" x="0.0" y="130" width="667" height="65"/>
+                                        <rect key="frame" x="0.0" y="130" width="736" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B1c-C3-t3h" id="XX3-HT-5MJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="736" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="iVs-YM-2eI">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="iVs-YM-2eI" userLabel="line_3_phone_click">
                                                     <rect key="frame" x="20" y="8" width="49" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="eq6-Nm-n0k" appends="YES" id="yBb-Du-bAM"/>
+                                                    </connections>
                                                 </imageView>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="03: no calls" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIY-e4-5mA">
+                                                    <rect key="frame" x="77" y="8" width="578" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
+                                                    <color key="textColor" red="0.97763905689999997" green="0.97944538010000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="EbF-4x-QV5" appends="YES" id="HPt-Lq-hyO"/>
+                                                    </connections>
+                                                </label>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contacts_idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="a8L-Be-Odw">
-                                                    <rect key="frame" x="500" y="7" width="49" height="49"/>
+                                                    <rect key="frame" x="663" y="8" width="49" height="49"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <gestureRecognizers/>
                                                     <connections>
                                                         <outletCollection property="gestureRecognizers" destination="5EB-if-at9" appends="YES" id="MuK-C0-dhG"/>
                                                     </connections>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="03: no calls" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIY-e4-5mA">
-                                                    <rect key="frame" x="77" y="21" width="415" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
-                                                    <color key="textColor" red="0.97763905689999997" green="0.97944538010000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.16516572830000001" green="0.2489949437" blue="0.40131152850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="az0-23-tMG">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="tUN-1m-LWU">
-                                        <rect key="frame" x="0.0" y="195" width="667" height="65"/>
+                                        <rect key="frame" x="0.0" y="195" width="736" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tUN-1m-LWU" id="U5M-dL-aed">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="736" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="vEL-wX-PDR">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="vEL-wX-PDR" userLabel="line_4_phone_click">
                                                     <rect key="frame" x="20" y="8" width="49" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="Abx-8k-oVU" appends="YES" id="4bZ-0L-myu"/>
+                                                    </connections>
                                                 </imageView>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="04: no calls" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ht8-ta-cYM">
+                                                    <rect key="frame" x="77" y="8" width="578" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
+                                                    <color key="textColor" red="0.97763905689999997" green="0.97944538010000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="hW6-KU-SvU" appends="YES" id="XoX-OA-11x"/>
+                                                    </connections>
+                                                </label>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contacts_idle.png" translatesAutoresizingMaskIntoConstraints="NO" id="I3M-vZ-mLv" userLabel="04 Clicked">
-                                                    <rect key="frame" x="500" y="8" width="49" height="48"/>
+                                                    <rect key="frame" x="663" y="8" width="49" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <gestureRecognizers/>
                                                     <connections>
                                                         <outletCollection property="gestureRecognizers" destination="avb-nT-LCI" appends="YES" id="ybu-gA-1C6"/>
                                                     </connections>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="04: no calls" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ht8-ta-cYM">
-                                                    <rect key="frame" x="77" y="22" width="415" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="13"/>
-                                                    <color key="textColor" red="0.97763905689999997" green="0.97944538010000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.16516572830000001" green="0.2489949437" blue="0.40131152850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -203,25 +247,65 @@
                         <action selector="line_4_move_to_info:" destination="jO2-zK-O5Q" id="nDV-LA-ARh"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="ggw-sM-eY2" userLabel="line_1_phone_click">
+                    <connections>
+                        <action selector="line_1_move_to_info:" destination="jO2-zK-O5Q" id="Hba-uN-fSR"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Z2V-zc-tBl" userLabel="line_2_phone_click">
+                    <connections>
+                        <action selector="line_2_move_to_info:" destination="jO2-zK-O5Q" id="uXt-fo-62C"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="eq6-Nm-n0k" userLabel="line_3_phone_click">
+                    <connections>
+                        <action selector="line_3_move_to_info:" destination="jO2-zK-O5Q" id="HrL-mC-SNH"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Abx-8k-oVU" userLabel="line_4_phone_click">
+                    <connections>
+                        <action selector="line_4_move_to_info:" destination="jO2-zK-O5Q" id="dO9-ul-Xn0"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Kbq-gQ-Ig2" userLabel="line_1_text_click">
+                    <connections>
+                        <action selector="line_1_move_to_info:" destination="jO2-zK-O5Q" id="6xY-bh-B2d"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="AyD-4a-Ypu" userLabel="line_2_text_click">
+                    <connections>
+                        <action selector="line_2_move_to_info:" destination="jO2-zK-O5Q" id="nbE-pK-iTO"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="EbF-4x-QV5" userLabel="line_3_text_click">
+                    <connections>
+                        <action selector="line_3_move_to_info:" destination="jO2-zK-O5Q" id="eWu-I5-grB"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="hW6-KU-SvU" userLabel="line_4_text_click">
+                    <connections>
+                        <action selector="line_4_move_to_info:" destination="jO2-zK-O5Q" id="bQm-i5-bnD"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="920.68965517241384" y="26.399999999999999"/>
+            <point key="canvasLocation" x="920.38043478260875" y="26.086956521739133"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZuP-f1-Uhq">
             <objects>
                 <tableViewController id="hmp-dk-xth" customClass="ViewController" customModule="iosSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HR1-uL-Woh">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection headerTitle="CallerID" id="OAL-Zi-tQ7">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="MX4-SH-7g0">
-                                        <rect key="frame" x="0.0" y="28" width="667" height="35"/>
+                                        <rect key="frame" x="0.0" y="28" width="736" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MX4-SH-7g0" id="JmD-fA-DxI">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="34"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="736" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vny-Ay-2zV">
@@ -251,10 +335,10 @@
                                         <color key="backgroundColor" red="0.16516572830000001" green="0.2489949437" blue="0.40131152850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="x7A-sc-uAj">
-                                        <rect key="frame" x="0.0" y="63" width="667" height="35"/>
+                                        <rect key="frame" x="0.0" y="63" width="736" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x7A-sc-uAj" id="F0e-td-4mF">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="34"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="736" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6k-zB-lHa">
@@ -288,10 +372,10 @@
                             <tableViewSection headerTitle="Contact Info" id="mgh-dI-YJ3">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="gE9-Jz-GPV">
-                                        <rect key="frame" x="0.0" y="126" width="667" height="35"/>
+                                        <rect key="frame" x="0.0" y="126" width="736" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gE9-Jz-GPV" id="hqK-90-e2J">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="34"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="736" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdE-ol-uH9">
@@ -321,10 +405,10 @@
                                         <color key="backgroundColor" red="0.16516572830000001" green="0.2489949437" blue="0.40131152850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="dES-Kw-KyS">
-                                        <rect key="frame" x="0.0" y="161" width="667" height="35"/>
+                                        <rect key="frame" x="0.0" y="161" width="736" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dES-Kw-KyS" id="5f4-rv-Qfw">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="34"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="736" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9s0-RS-4bg">
@@ -354,10 +438,10 @@
                                         <color key="backgroundColor" red="0.16516572830000001" green="0.2489949437" blue="0.40131152850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="ZZk-2s-CRI">
-                                        <rect key="frame" x="0.0" y="196" width="667" height="35"/>
+                                        <rect key="frame" x="0.0" y="196" width="736" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZZk-2s-CRI" id="fm5-be-JgS">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="34"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="736" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5q-AH-YTZ">
@@ -387,10 +471,10 @@
                                         <color key="backgroundColor" red="0.16516572830000001" green="0.2489949437" blue="0.40131152850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="hRR-4N-qgD">
-                                        <rect key="frame" x="0.0" y="231" width="667" height="35"/>
+                                        <rect key="frame" x="0.0" y="231" width="736" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hRR-4N-qgD" id="SzO-CC-XHv">
-                                            <rect key="frame" x="0.0" y="0.0" width="667" height="34"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="736" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Zip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyI-62-W28">

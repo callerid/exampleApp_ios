@@ -63,7 +63,6 @@ For UDP receiver help:
 https://github.com/robbiehanson/CocoaAsyncSocket
 https://github.com/stansidel/udpserver_swift
 
-
 For FMDB database help:
 http://www.appcoda.com/fmdb-sqlite-database/
 https://github.com/ccgus/fmdb

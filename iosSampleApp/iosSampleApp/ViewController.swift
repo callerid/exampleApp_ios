@@ -8,6 +8,8 @@
 
 import UIKit
 import CocoaAsyncSocket
+import  UserNotifications
+import UserNotificationsUI
 
 class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
 
@@ -214,6 +216,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
         
         // Get the last received number for the selected line
         let number = DBManager.shared.getLineLastNumber(line: DBManager.shared.getLineSelected())
+        let name = DBManager.shared.getLineLastName(line:DBManager.shared.getLineSelected())
         
         // Check database for contact with number selected
         var dbResult = DBManager.shared.checkCallerIdForMatch(number: number)
@@ -221,7 +224,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
         // If number not found then populate info screen with <insert info>
         if(dbResult[0] == "not found"){
             
-            info_name.text = "add info"
+            info_name.text = name
             info_number.text = number
             info_address.text = "add info"
             info_city.text = "add info"
@@ -409,6 +412,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                
                 let lineNum = Int(lineNumber)
                 DBManager.shared.setLineLastNumber(line: lineNum!, number: phoneNumber)
+                DBManager.shared.setLineLastName(line: lineNum!, name: callerId)
                 
                 var dbResults = DBManager.shared.checkCallerIdForMatch(number: phoneNumber)
                 
@@ -511,8 +515,8 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
             // ----------
             
             // Pad phone number and callerid
-            phoneNumber = phoneNumber.padding(toLength: 14, withPad: " ", startingAt: 0)
-            callerId = callerId.padding(toLength: 15, withPad: " ", startingAt: 0)
+            phoneNumber = phoneNumber.padding(toLength: 18, withPad: " ", startingAt: 0)
+            callerId = callerId.padding(toLength: 20, withPad: " ", startingAt: 0)
             
             // ---------
             
@@ -543,6 +547,9 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     //-------------------------------------------------
                     // Line 1 - inbound start record
                     //-------------------------------------------------
+                    
+                    // Display notification
+                    sendNotification(line: 1, name: callerId, number: phoneNumber)
                     
                     // Change row background color to green for incoming call
                     line_1_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
@@ -583,7 +590,11 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     // Line 1 - inbound end record
                     //-------------------------------------------------
                     
-                    // add your code if needed
+                    // Change row background color back to idle
+                    line_1_row.backgroundColor = #colorLiteral(red: 0.1651657283, green: 0.2489949437, blue: 0.4013115285, alpha: 1)
+                    
+                    // Change image back to not-ringing
+                    line_1_image.image = UIImage(named: "idle.png")
                     
                     break
                     
@@ -647,6 +658,9 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     // Line 2 - inbound start record
                     //-------------------------------------------------
                     
+                    // Display notification
+                    sendNotification(line: 2, name: callerId, number: phoneNumber)
+                    
                     // Change row background color to green for incoming call
                     line_2_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
                     
@@ -686,7 +700,11 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     // Line 2 - inbound end record
                     //-------------------------------------------------
                     
-                    // add your code if needed
+                    // Change row background color back to idle
+                    line_2_row.backgroundColor = #colorLiteral(red: 0.1651657283, green: 0.2489949437, blue: 0.4013115285, alpha: 1)
+                    
+                    // Change image back to not-ringing
+                    line_2_image.image = UIImage(named: "idle.png")
                     
                     break
                     
@@ -750,6 +768,9 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     // Line 3 - inbound start record
                     //-------------------------------------------------
                     
+                    // Display notification
+                    sendNotification(line: 3, name: callerId, number: phoneNumber)
+                    
                     // Change row background color to green for incoming call
                     line_3_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
                     
@@ -789,7 +810,11 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     // Line 3 - inbound end record
                     //-------------------------------------------------
                     
-                    // add your code if needed
+                    // Change row background color back to idle
+                    line_3_row.backgroundColor = #colorLiteral(red: 0.1651657283, green: 0.2489949437, blue: 0.4013115285, alpha: 1)
+                    
+                    // Change image back to not-ringing
+                    line_3_image.image = UIImage(named: "idle.png")
                     
                     break
                     
@@ -855,6 +880,9 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     // Line 4 - inbound start record
                     //-------------------------------------------------
                     
+                    // Display notification
+                    sendNotification(line: 4, name: callerId, number: phoneNumber)
+                    
                     // Change row background color to green for incoming call
                     line_4_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
                     
@@ -894,7 +922,11 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     // Line 4 - inbound end record
                     //-------------------------------------------------
                     
-                    // add your code if needed
+                    /// Change row background color back to idle
+                    line_4_row.backgroundColor = #colorLiteral(red: 0.1651657283, green: 0.2489949437, blue: 0.4013115285, alpha: 1)
+                    
+                    // Change image back to not-ringing
+                    line_4_image.image = UIImage(named: "idle.png")
                     
                     break
                     
@@ -950,6 +982,32 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
         
         
     }
-
+    
+    //-----------------------------------------------------------------------------------------
+    // Notifications
+    //-----------------------------------------------------------------------------------------
+    
+    func sendNotification(line:Int, name:String, number:String){
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Incoming Call on Line \(line)"
+        content.body = "\(number)   \(name)"
+        content.launchImageName = "ring.png"
+        content.sound = UNNotificationSound.default()
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "notify", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().add(request) {(error) in
+            if let error = error {
+                print("Error: \(error)")
+            }
+        }
+        
+    }
+    
+    //-----------------------------------------------------------------------------------------
+    
 }
 

@@ -23,6 +23,12 @@ class DBManager: NSObject {
     var line_2_last_number:String = "no calls"
     var line_3_last_number:String = "no calls"
     var line_4_last_number:String = "no calls"
+    
+    var line_1_last_name:String = "n/a"
+    var line_2_last_name:String = "n/a"
+    var line_3_last_name:String = "n/a"
+    var line_4_last_name:String = "n/a"
+    
     var line_selected_for_info = 1
     
     var line_1_change_to_idle:Bool = false
@@ -117,6 +123,31 @@ class DBManager: NSObject {
         
     }
     
+    func setLineLastName(line:Int,name:String) {
+        
+        switch line {
+        case 1:
+            line_1_last_name=name
+            break
+            
+        case 2:
+            line_2_last_name=name
+            break
+            
+        case 3:
+            line_3_last_name=name
+            break
+            
+        case 4:
+            line_4_last_name=name
+            break
+            
+        default:
+            break
+        }
+        
+    }
+    
     func setLineSelected(line:Int){
         line_selected_for_info = line
     }
@@ -143,6 +174,28 @@ class DBManager: NSObject {
             
         default:
             return "no calls"
+        }
+        
+    }
+    
+    func getLineLastName(line:Int) -> String {
+        
+        switch line {
+            
+        case 1:
+            return line_1_last_name
+            
+        case 2:
+            return line_2_last_name
+            
+        case 3:
+            return line_3_last_name
+            
+        case 4:
+            return line_4_last_name
+            
+        default:
+            return "n/a"
         }
         
     }
