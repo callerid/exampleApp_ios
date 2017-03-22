@@ -549,7 +549,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     //-------------------------------------------------
                     
                     // Display notification
-                    sendNotification(line: 1, name: callerId, number: phoneNumber)
+                    //sendNotification(line: 1, name: callerId, number: phoneNumber)
                     
                     // Change row background color to green for incoming call
                     line_1_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
@@ -659,7 +659,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     //-------------------------------------------------
                     
                     // Display notification
-                    sendNotification(line: 2, name: callerId, number: phoneNumber)
+                    //sendNotification(line: 2, name: callerId, number: phoneNumber)
                     
                     // Change row background color to green for incoming call
                     line_2_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
@@ -769,7 +769,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     //-------------------------------------------------
                     
                     // Display notification
-                    sendNotification(line: 3, name: callerId, number: phoneNumber)
+                    //sendNotification(line: 3, name: callerId, number: phoneNumber)
                     
                     // Change row background color to green for incoming call
                     line_3_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
@@ -881,7 +881,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     //-------------------------------------------------
                     
                     // Display notification
-                    sendNotification(line: 4, name: callerId, number: phoneNumber)
+                    //sendNotification(line: 4, name: callerId, number: phoneNumber)
                     
                     // Change row background color to green for incoming call
                     line_4_row.backgroundColor = #colorLiteral(red: 0.0460288967, green: 0.6721785946, blue: 0.06633104274, alpha: 1)
@@ -986,7 +986,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
     //-----------------------------------------------------------------------------------------
     // Notifications
     //-----------------------------------------------------------------------------------------
-    
+    /*
     func sendNotification(line:Int, name:String, number:String){
         
         let content = UNMutableNotificationContent()
@@ -1006,7 +1006,7 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
         }
         
     }
-    
+    */
     //-----------------------------------------------------------------------------------------
     
 }
