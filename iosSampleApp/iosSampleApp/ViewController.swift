@@ -323,6 +323,17 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
         
         if let udpRecieved = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
             
+            let callerIDfilter = "\\^\\^<U>(\\d{6})<S>(\\d{6})"
+            let filterRegex = try! NSRegularExpression(pattern: callerIDfilter, options: [])
+            let filterMatches = filterRegex.matches(in: udpRecieved as String, options: [], range: NSRange(location: 0, length: udpRecieved.length))
+            
+            
+            // if UDP packet does not match CallerID.com format, skip
+            if(filterMatches.count < 1) {
+                return
+            }
+            
+            
             // parse and handle udp data----------------------------------------------
             
             // declare used variables for matching
