@@ -1,7 +1,5 @@
 CALLERID.COM
 iOS Sample Application
----------------------
-spenland@callerid.com
 -------------------------------------------------------------------------------
 
 iOS Development
@@ -30,6 +28,7 @@ To begin your own iOS project do the following:
 2- Create a project using XCode.
 
 3- Create/initalize podfile to include:
+	
 	use_frameworks!
 	pod 'CocoaAsyncSocket'
 	pod 'FMDB'
