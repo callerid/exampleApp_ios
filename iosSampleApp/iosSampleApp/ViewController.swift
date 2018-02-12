@@ -318,10 +318,34 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
     // -------------------------------------------------------------------------
     //                     Receive data from a UDP broadcast
     // -------------------------------------------------------------------------
-    
+    var previousReceptions: [String] = []
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
         
         if let udpRecieved = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
+            
+            
+            // handle duplicates
+            if(previousReceptions.contains(udpRecieved as String)){
+                return
+            }
+            else{
+                
+                if(previousReceptions.count>30){
+                    
+                    // buffer is full, add to end - remove oldest
+                    previousReceptions.append(udpRecieved as String)
+                    previousReceptions.removeFirst()
+                    
+                }
+                else{
+                    
+                    // buffer is not full so add to end
+                    previousReceptions.append(udpRecieved as String)
+                    
+                }
+                
+            }
+            
             
             // parse and handle udp data----------------------------------------------
             
