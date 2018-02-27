@@ -314,7 +314,28 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
     }
     
     // --------------------------------------------------------------------------------------
+    func removeReceptionFromBuffer(reception:String){
+        
+        var indexes:[Int] = []
+        var cnt = 0
+        
+        for rec in previousReceptions {
+            
+            if(rec.contains(reception.substring(from:reception.index(reception.endIndex, offsetBy: -20)))){
+                indexes.append(cnt)
+            }
+            
+            cnt = cnt + 1
+            
+        }
+        
+        for i in (0...indexes.count - 1).reversed() {
     
+            previousReceptions.remove(at: indexes[i])
+            
+        }
+        
+    }
     // -------------------------------------------------------------------------
     //                     Receive data from a UDP broadcast
     // -------------------------------------------------------------------------
@@ -391,6 +412,10 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                         callTime = udpRecieved.substring(with: result!.rangeAt(8))
                         phoneNumber = udpRecieved.substring(with: result!.rangeAt(9))
                         callerId = udpRecieved.substring(with: result!.rangeAt(10))
+                        
+                        if(startOrEnd == "E"){
+                            removeReceptionFromBuffer(reception: udpRecieved as String)
+                        }
                         
                     }
                 }
@@ -645,7 +670,11 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     // Line 1 - outbound end record
                     //-------------------------------------------------
                     
-                    // add your code if needed
+                    // Change row background color back to idle
+                    line_1_row.backgroundColor = #colorLiteral(red: 0.1651657283, green: 0.2489949437, blue: 0.4013115285, alpha: 1)
+                    
+                    // Change image back to not-ringing
+                    line_1_image.image = UIImage(named: "idle.png")
                     
                     break
                     
@@ -755,7 +784,11 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     // Line 2 - outbound end record
                     //-------------------------------------------------
                     
-                    // add your code if needed
+                    // Change row background color back to idle
+                    line_2_row.backgroundColor = #colorLiteral(red: 0.1651657283, green: 0.2489949437, blue: 0.4013115285, alpha: 1)
+                    
+                    // Change image back to not-ringing
+                    line_2_image.image = UIImage(named: "idle.png")
                     
                     break
                     
@@ -865,7 +898,11 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     // Line 3 - outbound end record
                     //-------------------------------------------------
                     
-                    // add your code if needed
+                    // Change row background color back to idle
+                    line_3_row.backgroundColor = #colorLiteral(red: 0.1651657283, green: 0.2489949437, blue: 0.4013115285, alpha: 1)
+                    
+                    // Change image back to not-ringing
+                    line_3_image.image = UIImage(named: "idle.png")
                     
                     break
                     
@@ -977,7 +1014,11 @@ class ViewController: UITableViewController, GCDAsyncUdpSocketDelegate {
                     // Line 4 - outbound end record
                     //-------------------------------------------------
                     
-                    // add your code if needed
+                    /// Change row background color back to idle
+                    line_4_row.backgroundColor = #colorLiteral(red: 0.1651657283, green: 0.2489949437, blue: 0.4013115285, alpha: 1)
+                    
+                    // Change image back to not-ringing
+                    line_4_image.image = UIImage(named: "idle.png")
                     
                     break
                     
